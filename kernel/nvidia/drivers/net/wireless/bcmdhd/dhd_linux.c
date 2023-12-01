@@ -3360,16 +3360,17 @@ dhd_watchdog_thread(void *data)
 				time_lapse = jiffies - jiffies_at_start;
 
 				/* Reschedule the watchdog */
-				if (dhd->wd_timer_valid)
+				if (dhd->wd_timer_valid) {
 					mod_timer(&dhd->timer,
 					    jiffies +
 					    msecs_to_jiffies(dhd_watchdog_ms) -
 					    min(msecs_to_jiffies(dhd_watchdog_ms), time_lapse));
 					DHD_GENERAL_UNLOCK(&dhd->pub, flags);
 				}
+			}
 		} else {
 			break;
-	}
+		}
 
 	complete_and_exit(&tsk->completed, 0);
 }
