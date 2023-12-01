@@ -1,6 +1,6 @@
 #syntax=docker/dockerfile:1.6
 ARG ALPINE_VERSION=3.16
-ARG KERNEL_CONFIG=tegra_defconfig
+ARG KERNEL_CONFIG=tegra_eveos_defconfig
 ARG KERNEL_BIN=arch/arm64/boot/Image
 # set from a Makefile.eve
 ARG SOURCE_DATE_EPOCH
